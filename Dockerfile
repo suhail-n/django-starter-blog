@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY Pipfile* .
 
-RUN pipenv install
+RUN pip install pipenv && \
+    pipenv install
 
 COPY . .
 
-# hostport:internal-container-port
-EXPOSE 8000:8000
+EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver"]
+CMD ["pipenv", "run", "startdev"]

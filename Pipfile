@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 
+[scripts]
+startdev = "python manage.py runserver"
+
 [dev-packages]
 autopep8 = "*"
 
