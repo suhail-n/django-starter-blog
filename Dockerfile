@@ -2,13 +2,12 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY Pipfile* .
+COPY requirements.txt .
 
-RUN pip install pipenv && \
-    pipenv install
+RUN pip install -r requirements.txt
 
 COPY . .
 
 EXPOSE 8000
 
-CMD ["pipenv", "run", "startdev"]
+ENTRYPOINT [ "sh", "/app/docker-entrypoint.sh"]
